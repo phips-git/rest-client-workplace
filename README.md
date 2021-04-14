@@ -4,7 +4,7 @@ A simple workplace directory for the Visual Studio Code [REST Client] extension 
 
 When working with multiple REST APIs, this workplace helps to prepare and store HTTP requests in a centralized place without littering the individual repositories with `*.http` or `*.rest` files and preventing possible source-control file issues.
 
-Additionally, the workplace holds an `example.http` file with basic examples how to use the [REST Client] extension (mostly inspired by the extension's description).
+As an alternative to just adding a folder, the workplace offers an `example.http` file with basic examples how to use the [REST Client] extension (mostly inspired by the extension's description), which can be used as a template.
 
 [rest client]: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
