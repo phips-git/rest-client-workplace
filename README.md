@@ -8,4 +8,4 @@ Additionally, the workplace holds an `example.http` file with basic examples how
 
 [rest client]: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
-![rest-client-workspace-example-screenshot](https://user-images.githubusercontent.com/44228158/114730678-5f2aaf00-9d41-11eb-9277-c4bc5c0975ea.PNG)
+![rest-client-workspace-example-screenshot](https://user-images.githubusercontent.com/44228158/114732812-1f64c700-9d43-11eb-84eb-a789b90048f2.PNG)
