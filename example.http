@@ -1,0 +1,87 @@
+// GET request (default if method is omitted)
+https://example.com/topics/1
+
+###
+
+// GET request with query parameters
+https://example.com/comments
+    ?page=2
+    &pageSize=10
+
+###
+
+// POST request with header
+POST https://example.com/comments
+content-type: application/json
+
+###
+
+// POST request with payload
+POST https://example.com/comments
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+// Post request with file path
+POST https://example.com/comments
+
+< ./demo.xml
+
+###
+
+// GET request with basic authorization
+https://httpbin.org/basic-auth/user/passwd HTTP/1.1
+Authorization: Basic user:passwd
+
+###
+
+// Setting file variables to be reused in requests
+@hostname = api.example.com
+@port = 8080
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@modifiedBy = {{$processEnv USERNAME}}
+
+###
+
+// Naming a request
+# @name patchAuthor
+PATCH https://{{host}}/authors/john
+Content-Type: {{contentType}}
+
+{
+    "content": "foo bar",
+    "modified_by": "{{modifiedBy}}"
+}
+
+###
+
+// Referencing a named request's header in a variable
+@authToken = {{patchAuthor.request.headers.contentType}}
+// Referencing a named request's body in a variable
+@patchAuthorContent = {{patchAuthor.request.body.content}}
+
+
+// Referencing a named request's response in another request
+https://example.com/api/comments/commentId/replies/{{patchAuthor.response.body.//reply[1]/@id}}
+
+
+###
+
+// Using system variables
+POST https://api.example.com/comments
+Date: {{$datetime rfc1123}}
+
+{
+    "user_name": "{{$dotenv USERNAME}}",
+    "request_id": "{{$guid}}",
+    "updated_at": "{{$timestamp}}",
+    "created_at": "{{$timestamp -1 d}}",
+    "review_count": "{{$randomInt 5 200}}",
+    "custom_date": "{{$datetime 'YYYY-MM-DD'}}",
+    "local_custom_date": "{{$localDatetime 'YYYY-MM-DD'}}"
+}
